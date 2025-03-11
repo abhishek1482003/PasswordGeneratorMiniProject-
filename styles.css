@@ -1,0 +1,358 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'League Spartan', sans-serif;
+}
+
+/* these are global variables  */
+:root {
+
+    --dk-violet: hsl(268, 75%, 9%);
+    --lt-violet: hsl(268, 47%, 21%);
+    --lt-violet2: hsl(281, 89%, 26%);
+    --vb-violet: hsl(285, 91%, 52%);
+    --vb-violet2: hsl(290, 70%, 36%);
+
+    --vb-yellow: hsl(52, 100%, 62%);
+
+
+    --pl-white: hsl(0, 0%, 100%);
+
+    --vb-cyan: hsl(176, 100%, 44%);
+    --vb-cyan2: hsl(177, 92%, 70%);
+    --dk-text: hsl(198, 20%, 13%);
+}
+
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(231deg, rgba(22, 6, 40, 1) 0%, rgba(52, 28, 79, 1) 50%, rgba(88, 7, 125, 1) 100%);
+}
+
+.cointainer {
+    width: 90%;
+    max-width: 450px;
+}
+
+h1 {
+    color: var(--pl-white);
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.display-cointainer {
+    position: relative;
+    /* abhi iski position relative isliy thi kyuki mujhe kuch chizo ko abhi 
+    overlap karana hai iske upar jaise copy wali image  */
+    background-color: var(--dk-violet);
+    border-radius: 1rem;
+    border-bottom: 0.35rem solid var(--lt-violet2);
+    margin: 1rem 0;
+    padding-top: 0.35rem;
+}
+
+.display {
+    /* this is class of input tag where generated passwrod will be written */
+    width: 100%;
+    background-color: transparent;
+    /* background of the parent or underlying elements to be visible. */
+    padding: 1.15rem 1rem;
+    /* In padding: y x; → y = top & bottom, x = left & right */
+    color: var(--vb-yellow);
+    font-weight: 600;
+    /* Controls the thickness (boldness) of the text. */
+    font-size: 1.5rem;
+    /* Controls the size of the text. */
+    line-height: 30px;
+    /* controls the vertical space between lines of text. */
+    letter-spacing: 1px;
+    padding-right: 3.25rem;
+    border: none;
+}
+
+/* upar wale input fiele me jo placeholder hai uska c
+  colout upar se nhi kr sakte hai alg se karneg  */
+
+.display::placeholder {
+    position: absolute;
+    /* position is given wrt display container */
+    top: 50%;
+    /* No, top: 50% aligns the top border of the child with the center of the parent,
+     not the center of the child. */
+    /* It will start after 50% from the top, 
+    so the top border of the element will be positioned at the center line. */
+    left: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 30px;
+    color: var(--vb-yellow);
+    opacity: 0.65;
+    text-transform: uppercase;
+    transform: translateY(-50%);
+    /*  The element is shifted upwards by 50% of its own height. 
+    This is often used to vertically center an element within its container. */
+}
+
+.display-cointainer button {
+    position: absolute;
+    /* kyuki ye overlap kar rha hai container ke upar */
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+}
+
+
+.input-container {
+    width: 100%;
+    background-color: var(--dk-violet);
+    border-radius: 1rem;
+    padding: 2rem;
+    border-bottom: 0.35rem solid var(--lt-violet2);
+}
+
+
+.length-container {
+    /* mujhe dono items ko agl bgl rkha hai isliy  */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* vertical axis of container ke center me karne ke liy  */
+}
+
+/* length container div ke andar do childs hai 
+to childs ko yese access kar sakte hai ye sab bas trike
+hai same kam kai triko se ho sakta hai   */
+/* length ke container ke andar paragraphs mese 1st wala */
+.length-container p:nth-child(1) {
+    color: var(--pl-white);
+    font-size: 1.5rem;
+}
+
+
+.length-container p:nth-child(2) {
+    color: var(--vb-yellow);
+    font-size: 1.5rem;
+}
+
+/* iske bad slider hai to use bad me karenge */
+
+
+/* strength container ek div hai jiske andar 
+id p aur ek div hai us div ko mujhe circle banana hai 
+dono childs same horizontal line me hai aur extremes par hai
+thus flex use hoga */
+.strength-container {
+    display: flex;
+    /* used to place contents same dist except lefrt and right */
+    justify-content: space-between;
+    /* to align vertically */
+    align-items: center;
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+
+.strength-container p {
+    color: var(--pl-white);
+    font-size: 1.5rem;
+}
+
+.indicator {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    /* to make circle border radius is made 50 */
+}
+
+.generateButton {
+    width: 100%;
+    padding: 1rem 0;
+    background-color: var(--vb-violet);
+    text-align: center;
+    border-radius: 0.75rem;
+    border-bottom: 0.35rem solid var(--vb-yellow);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--vb-yellow);
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+/* now huamre pass checkboxes hai aur har checkbox ek div me hai 
+to check tick hai wo ek input tag se bna hai aur jo text hai 
+wo label hai, to mujhe har checkbox wale div ke andar 
+alighn items center krna hoga, also tick aqua colur ka aa rha hai
+to use bhi alg se handle karna pdega, also jo tick sign hai wo defualt 
+wala nhi hai humne custom lagaya hai, yani jab input checked state me hoga to 
+usko alg se handle karna hoga, to hume har div ko clas check dediya  */
+
+
+.check {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 0 1rem;
+    /* This creates a horizontal space of 1rem between flex items but no vertical gap*/
+}
+
+/* check class wale div ke andar input tag */
+.check input {
+    appearance: none;
+    /*  removes the default browser styling of form elements (like buttons, dropdowns, and inputs), 
+    allowing you to fully customize their look. */
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--vb-cyan);
+    cursor: pointer;
+    position: relative;
+    /* kyuki bad me iske upar tick aayega to overlap karana hoga  */
+    border-radius: 0.35rem;
+}
+
+/* check class ke andar jo input tag hai jap wo checked state ke andar hoga */
+.check input:checked {
+    background-color: var(--vb-cyan);
+}
+
+/* jab mujhe kisi elment ke andar koi content place karna hota hai 
+to css ki content property ka use karte hai  */
+
+/* check class me jo input hai uski checked state me actual contetn se phle  */
+.check input:checked::before {
+    content: '✔';
+    /* ye content html elment ek actual content ki jgh dikhaya jayega */
+    position: absolute;
+    /* input field ke respect me placed hai  */
+    color: var(--dk-text);
+    font-size: 1.05rem;
+    font-weight: 600;
+    top: -2.5px;
+    /* negative value upward positive value downward */
+    left: 15%;
+    /* moves the element 15% from the left side of its containing element.
+           The remaining 85% will be on the right side. */
+    /* transform: translateX(-50%)  translateY(40%); */
+}
+
+.check label {
+    color: var(--pl-white);
+    font-size: 1.25rem;
+    letter-spacing: 0.75px;
+}
+
+.copyBtn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+
+.tooltip {
+    position: absolute;
+    /* kyuki ye upar ki trh aa rhi hai btn ke  */
+    background-color: var(--vb-violet2);
+    color: var(--vb-yellow);
+    font-size: 1.25rem;
+    top: -35px;
+    left: -25px;
+    padding: 5px 10px;
+    border-radius: 1rem;
+    opacity: 0;
+    /* originally visible nhi hoga  */
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: all 250ms ease-in-out;
+}
+
+/* jab js active class ko add karega tab ye dikhne lagega  */
+.tooltip.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slider {
+    appearance: none;
+    /* remove all default styling */
+    width: 100%;
+    /* take full width of parent */
+    height: 0.75rem;
+    cursor: pointer;
+    background-color: var(--lt-violet);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    background-image: linear-gradient(var(--vb-violet), var(--vb-violet));
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    z-index: -1;
+}
+
+/* slider ke upar jab mera focus elment hoga 
+basically jab hum slider ko change kr rhe hote hai whi uski 
+focus state hai, also jabtak khi aur click nhi karte tabtak 
+wo focused hi rhta hai  */
+.slider:focus {
+    outline: 3px solid var(--vb-yellow);
+}
+
+/* slider ek thumb ko access karne keliy is 
+psuedo element slector ka use kiya jata hai  */
+.slider::-webkit-slider-thumb {
+    position: relative;
+    z-index: 1;
+    /* kyuki mujhe is slider se upar rkhna hai  */
+    appearance: none;
+    /* remove all default styling */
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: var(--vb-yellow);
+    cursor: pointer;
+    margin-top: -3px;
+    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
+    transition: all 100ms ease-in;
+    /*transition makes the change smooth and gradual
+all → Applies to all properties that change.
+100ms → Duration of the transition = 100 milliseconds.
+ease-in → Starts slow and then speeds up */
+}
+
+
+/* jab thumb ke uapr hove karenge tab  */
+.slider::-webkit-slider-thumb:hover {
+    outline: 2px solid var(--vb-yellow);
+    background-color: var(--dk-violet);
+    box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.80);
+}
+
+/* ye thumb ki properties ko firefox me visible karane ke liy hai  */
+
+.slider::-moz-range-thumb {
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background: var(--vb-yellow);
+    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb:hover {
+    outline: 2px solid var(--vb-yellow);
+    background-color: var(--dk-violet);
+    box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.80);
+  }
