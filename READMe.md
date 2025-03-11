@@ -72,29 +72,4 @@ A simple and secure password generator built using HTML, CSS, and JavaScript. Th
 - Add more symbols or special characters.
 - Improve the UI/UX with animations or a dark mode.
 
----
-
-## Screenshots
-
-![Password Generator Screenshot](./assets/screenshot.png)  
-*Replace this with an actual screenshot of your project.*
-
----
-
-## License
-
-This project is open-source and available under the [MIT License](https://opensource.org/licenses/MIT).
-
----
-
-## Connect with Me
-
-Feel free to reach out for feedback, suggestions, or collaborations!
-
-- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/your-profile)
-- **GitHub**: [Your GitHub Profile](https://github.com/your-username)
-- **Portfolio**: [Your Portfolio Website](https://your-portfolio.com)
-
----
-
 Enjoy generating secure passwords! 🔒
